@@ -1,0 +1,109 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px var(--page-padding) 72px;
+}
+
+.back {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-bottom: 28px;
+  transition: color var(--transition);
+}
+
+.back:hover {
+  color: var(--color-text);
+}
+
+.title {
+  font-size: clamp(22px, 4vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-bottom: 18px;
+}
+
+.sep {
+  opacity: 0.4;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-text);
+  max-width: 640px;
+  margin-bottom: 28px;
+}
+
+/* Video poster with play overlay */
+.poster {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #111;
+  border: none;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.posterImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.poster:hover .posterImage {
+  opacity: 0.7;
+}
+
+.playButton {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.28);
+  transition: background 0.3s ease;
+}
+
+.poster:hover .playButton {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.playButton svg {
+  width: clamp(44px, 7vw, 72px);
+  height: clamp(44px, 7vw, 72px);
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
+}
+
+.credits {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Not-found state */
+.notFound {
+  padding: 64px var(--page-padding);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--color-text-muted);
+}

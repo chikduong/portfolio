@@ -1,0 +1,12 @@
+node_modules
+dist
+.DS_Store
+*.local
+
+# Video files are too large for Git.
+# Place them in public/videos/ locally for development,
+# but host them on Vimeo or YouTube for production and
+# reference the embed URL in src/data/projects.ts instead.
+public/videos/*.mp4
+public/videos/*.mov
+public/videos/*.MOV

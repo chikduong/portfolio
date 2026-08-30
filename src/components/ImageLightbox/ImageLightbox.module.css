@@ -1,0 +1,36 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-overlay);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  cursor: zoom-out;
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 28px;
+  color: #fff;
+  opacity: 0.75;
+  cursor: pointer;
+  line-height: 1;
+  transition: opacity var(--transition);
+  z-index: 1;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  cursor: default;
+  display: block;
+}
