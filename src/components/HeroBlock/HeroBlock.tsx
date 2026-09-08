@@ -10,6 +10,7 @@ export function HeroBlock({ onScrollDown }: Props) {
       <h1 className={styles.name}>CHI KIM DUONG</h1>
       <p className={styles.tagline}>
         Crafting engaging stories for social media, broadcasting,
+        <br />
         publications, and communications.
       </p>
       <button

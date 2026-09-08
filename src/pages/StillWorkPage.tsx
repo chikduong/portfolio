@@ -1,21 +1,34 @@
 import { useRef, useState } from 'react';
-import { projects } from '../data/projects';
+import { Project, projects } from '../data/projects';
 import { Header } from '../components/Header/Header';
 import { HeroBlock } from '../components/HeroBlock/HeroBlock';
 import { WorkGrid } from '../components/WorkGrid/WorkGrid';
 import { WorkCard } from '../components/WorkCard/WorkCard';
-import { ImageLightbox } from '../components/ImageLightbox/ImageLightbox';
+import { ImageLightbox, LightboxImage } from '../components/ImageLightbox/ImageLightbox';
 
 const stillProjects = projects.filter(p => p.category === 'still');
 
-interface LightboxState {
-  src: string;
-  alt: string;
-}
-
 export function StillWorkPage() {
   const gridRef = useRef<HTMLDivElement>(null);
-  const [lightbox, setLightbox] = useState<LightboxState | null>(null);
+  const [lightboxImages, setLightboxImages] = useState<LightboxImage[] | null>(null);
+
+  const handleCardClick = (project: Project) => {
+    // PDF: open in new browser tab (renders inline in all modern browsers)
+    if (project.pdfUrl) {
+      window.open(project.pdfUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
+    // Multi-page carousel
+    if (project.images && project.images.length > 0) {
+      setLightboxImages(project.images.map(src => ({ src, alt: project.title })));
+      return;
+    }
+
+    // Single image
+    const src = project.imageUrl ?? project.thumbnailUrl;
+    setLightboxImages([{ src, alt: project.title }]);
+  };
 
   return (
     <>
@@ -28,22 +41,16 @@ export function StillWorkPage() {
               key={project.id}
               title={project.title}
               thumbnailUrl={project.thumbnailUrl}
-              onClick={() =>
-                setLightbox({
-                  src: project.imageUrl ?? project.thumbnailUrl,
-                  alt: project.title,
-                })
-              }
+              onClick={() => handleCardClick(project)}
             />
           ))}
         </WorkGrid>
       </div>
 
-      {lightbox && (
+      {lightboxImages && (
         <ImageLightbox
-          src={lightbox.src}
-          alt={lightbox.alt}
-          onClose={() => setLightbox(null)}
+          images={lightboxImages}
+          onClose={() => setLightboxImages(null)}
         />
       )}
     </>

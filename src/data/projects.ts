@@ -1,18 +1,20 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // HOW TO ADD OR EDIT A PROJECT
 //
-// 1. Add a new object to the array below (order in this array = order on site).
-// 2. Drop the thumbnail in:  public/thumbnails/<filename>
-// 3. For VIDEO projects:
-//    - Local file:    public/videos/<filename>  →  videoUrl: '/videos/<filename>'
-//    - Vimeo embed:   videoUrl: 'https://player.vimeo.com/video/XXXXXXXXX'
-//    - YouTube embed: videoUrl: 'https://www.youtube.com/embed/XXXXXXXXXXX'
-// 4. For STILL projects:
-//    - Drop the full-size image in public/images/<filename>
-//    - If imageUrl is omitted, the lightbox enlarges the thumbnail.
+// Order in this array = order displayed on the site.
 //
-// NOTE: Video files are excluded from Git (see .gitignore).
-// Commit thumbnails and images — they are small enough for GitHub.
+// VIDEO projects  → set videoUrl to a local path or an embed URL:
+//   Local:   '/videos/filename.mp4'
+//   Vimeo:   'https://player.vimeo.com/video/XXXXXXXXX'
+//   YouTube: 'https://www.youtube.com/embed/XXXXXXXXXXX'
+//
+// STILL projects  → three display modes:
+//   Single image:    set imageUrl
+//   Multi-page post: set images (array, first item = thumbnail)
+//   PDF document:    set pdfUrl (clicking thumbnail opens the PDF)
+//
+// NOTE: Video files are excluded from Git (see .gitignore) — they're too large.
+// Images and PDFs in public/images/ ARE committed and served from GitHub.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export type Category = 'video' | 'still';
@@ -23,30 +25,25 @@ export interface Project {
   title: string;
   description: string;
   role: string;
-  /** Client or organization name */
   client: string;
   year: number;
-  /** Path to thumbnail (placed in public/thumbnails/) */
+  /** Shown in the grid. For multi-page stills, use the first page. */
   thumbnailUrl: string;
-  /**
-   * VIDEO projects only.
-   * Local:   '/videos/filename.mp4'
-   * Vimeo:   'https://player.vimeo.com/video/XXXXXXXXX'
-   * YouTube: 'https://www.youtube.com/embed/XXXXXXXXXXX'
-   */
+  /** VIDEO: local path or embed URL */
   videoUrl?: string;
-  /**
-   * STILL projects only.
-   * Full-size image shown in lightbox. Falls back to thumbnailUrl if omitted.
-   */
+  /** STILL — single image: path to full-size image for lightbox */
   imageUrl?: string;
+  /** STILL — multi-page post: all pages in display order */
+  images?: string[];
+  /** STILL — document: clicking opens this PDF in a new tab */
+  pdfUrl?: string;
   category: Category;
   credits?: string;
 }
 
 export const projects: Project[] = [
 
-  // ── VIDEO PROJECTS (order here = order on site) ──────────────────────────
+  // ── VIDEO PROJECTS ───────────────────────────────────────────────────────
 
   {
     id: 'chi-duong-reel',
@@ -89,7 +86,7 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/blind-box-giveaway.jpg',
-    videoUrl: '/videos/blind-box-giveaway.MOV',
+    videoUrl: '/videos/blind-box-giveaway.mp4',
     category: 'video',
   },
   {
@@ -100,7 +97,7 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/keychain-event.jpg',
-    videoUrl: '/videos/keychain-event.MOV',
+    videoUrl: '/videos/keychain-event.mp4',
     category: 'video',
   },
   {
@@ -133,7 +130,7 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/trinket-lovers.jpg',
-    videoUrl: '/videos/trinket-lovers.MOV',
+    videoUrl: '/videos/trinket-lovers.mp4',
     category: 'video',
   },
   {
@@ -155,11 +152,11 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/collectors-freebie.jpg',
-    videoUrl: '/videos/collectors-freebie.MOV',
+    videoUrl: '/videos/collectors-freebie.mp4',
     category: 'video',
   },
 
-  // ── STILL / SOCIAL MEDIA PROJECTS ────────────────────────────────────────
+  // ── STILL / SOCIAL MEDIA PROJECTS ───────────────────────────────────────
 
   {
     id: 'store-product-drop',
@@ -168,74 +165,83 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/store-product-drop.jpg',
-    imageUrl: '/images/store-product-drop.jpg',
+    thumbnailUrl: '/images/store-product-drop-1.jpg',
+    images: [
+      '/images/store-product-drop-1.jpg',
+      '/images/store-product-drop-2.jpg',
+      '/images/store-product-drop-3.jpg',
+      '/images/store-product-drop-4.jpg',
+      '/images/store-product-drop-5.jpg',
+    ],
     category: 'still',
   },
   {
-    id: 'wilder-school-magazine',
-    title: 'Wilder School in Action Magazine Feature',
+    id: 'emergency-responders-qa',
+    title: 'Emergency Responders Q&A Post',
     description: '',
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/wilder-school-magazine.jpg',
-    imageUrl: '/images/wilder-school-magazine.jpg',
+    thumbnailUrl: '/images/emergency-responders-qa-1.jpg',
+    images: [
+      '/images/emergency-responders-qa-1.jpg',
+      '/images/emergency-responders-qa-2.jpg',
+    ],
+    category: 'still',
+  },
+  {
+    id: 'leaders-in-the-making',
+    title: 'Leaders In The Making Magazine Feature',
+    description: '',
+    role: '',
+    client: '',
+    year: 2024,
+    thumbnailUrl: '/images/leaders-in-the-making.jpg',
+    pdfUrl: '/images/leaders-in-the-making.pdf',
+    category: 'still',
+  },
+  {
+    id: 'career-visit-promo',
+    title: 'Career Visit Promo',
+    description: '',
+    role: '',
+    client: '',
+    year: 2024,
+    thumbnailUrl: '/images/career-visit-promo.jpg',
+    imageUrl: '/images/career-visit-promo.jpg',
+    category: 'still',
+  },
+  {
+    id: 'fridays-with-the-dean-promo',
+    title: 'Fridays With The Dean Promo',
+    description: '',
+    role: '',
+    client: '',
+    year: 2024,
+    thumbnailUrl: '/images/fridays-with-the-dean-promo.jpg',
+    imageUrl: '/images/fridays-with-the-dean-promo.jpg',
+    category: 'still',
+  },
+  {
+    id: 'monthly-lunch-and-learn',
+    title: 'Monthly Lunch & Learn Post',
+    description: '',
+    role: '',
+    client: '',
+    year: 2024,
+    thumbnailUrl: '/images/monthly-lunch-and-learn.jpg',
+    imageUrl: '/images/monthly-lunch-and-learn.jpg',
     category: 'still',
   },
   {
     id: 'website-launch',
-    title: 'Website Launch Post',
+    title: 'Website Launch Announcement',
     description: '',
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/website-launch.jpg',
-    imageUrl: '/images/website-launch.jpg',
-    category: 'still',
-  },
-  {
-    id: 'fema-emergency-qa',
-    title: 'FEMA Emergency Response Q&A Post',
-    description: '',
-    role: '',
-    client: '',
-    year: 2024,
-    thumbnailUrl: '/thumbnails/fema-emergency-qa.jpg',
-    imageUrl: '/images/fema-emergency-qa.jpg',
-    category: 'still',
-  },
-  {
-    id: 'monthly-lunch-learn',
-    title: 'Monthly Lunch and Learn Post',
-    description: '',
-    role: '',
-    client: '',
-    year: 2024,
-    thumbnailUrl: '/thumbnails/monthly-lunch-learn.jpg',
-    imageUrl: '/images/monthly-lunch-learn.jpg',
-    category: 'still',
-  },
-  {
-    id: 'appam-colleagues',
-    title: 'Our Colleagues at APPAM Post',
-    description: '',
-    role: '',
-    client: '',
-    year: 2024,
-    thumbnailUrl: '/thumbnails/appam-colleagues.jpg',
-    imageUrl: '/images/appam-colleagues.jpg',
-    category: 'still',
-  },
-  {
-    id: 'free-food-fridays-post',
-    title: 'Free Food Fridays Post',
-    description: '',
-    role: '',
-    client: '',
-    year: 2024,
-    thumbnailUrl: '/thumbnails/free-food-fridays-post.jpg',
-    imageUrl: '/images/free-food-fridays-post.jpg',
+    thumbnailUrl: '/images/website-launch.png',
+    imageUrl: '/images/website-launch.png',
     category: 'still',
   },
 ];
