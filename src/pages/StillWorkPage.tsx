@@ -42,6 +42,7 @@ export function StillWorkPage() {
               title={project.title}
               thumbnailUrl={project.thumbnailUrl}
               onClick={() => handleCardClick(project)}
+              aspectRatio="1 / 1"
             />
           ))}
         </WorkGrid>

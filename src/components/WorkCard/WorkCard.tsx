@@ -4,12 +4,13 @@ interface Props {
   title: string;
   thumbnailUrl: string;
   onClick: () => void;
+  aspectRatio?: string;
 }
 
-export function WorkCard({ title, thumbnailUrl, onClick }: Props) {
+export function WorkCard({ title, thumbnailUrl, onClick, aspectRatio }: Props) {
   return (
     <button className={styles.card} onClick={onClick} aria-label={`Open: ${title}`}>
-      <div className={styles.imageWrapper}>
+      <div className={styles.imageWrapper} style={aspectRatio ? { aspectRatio } : undefined}>
         <img
           src={thumbnailUrl}
           alt={title}
