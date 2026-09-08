@@ -4,7 +4,7 @@
 // Order in this array = order displayed on the site.
 //
 // VIDEO projects  → set videoUrl to a local path or an embed URL:
-//   Local:   '/videos/filename.mp4'
+//   Local:   `${b}videos/filename.mp4`
 //   Vimeo:   'https://player.vimeo.com/video/XXXXXXXXX'
 //   YouTube: 'https://www.youtube.com/embed/XXXXXXXXXXX'
 //
@@ -41,6 +41,9 @@ export interface Project {
   credits?: string;
 }
 
+// Vite replaces this with '/' in dev and '/portfolio/' in production.
+const b = import.meta.env.BASE_URL;
+
 export const projects: Project[] = [
 
   // ── VIDEO PROJECTS ───────────────────────────────────────────────────────
@@ -52,8 +55,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/chi-duong-reel.png',
-    videoUrl: '/videos/chi-duong-reel.mp4',
+    thumbnailUrl: `${b}thumbnails/chi-duong-reel.png`,
+    videoUrl: `${b}videos/chi-duong-reel.mp4`,
     category: 'video',
   },
   {
@@ -63,8 +66,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/forensics-classroom.png',
-    videoUrl: '/videos/forensics-classroom.mp4',
+    thumbnailUrl: `${b}thumbnails/forensics-classroom.png`,
+    videoUrl: `${b}videos/forensics-classroom.mp4`,
     category: 'video',
   },
   {
@@ -74,8 +77,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/governor-wilder-birthday.png',
-    videoUrl: '/videos/governor-wilder-birthday.mp4',
+    thumbnailUrl: `${b}thumbnails/governor-wilder-birthday.png`,
+    videoUrl: `${b}videos/governor-wilder-birthday.mp4`,
     category: 'video',
   },
   {
@@ -85,8 +88,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/blind-box-giveaway.jpg',
-    videoUrl: '/videos/blind-box-giveaway.mp4',
+    thumbnailUrl: `${b}thumbnails/blind-box-giveaway.jpg`,
+    videoUrl: `${b}videos/blind-box-giveaway.mp4`,
     category: 'video',
   },
   {
@@ -96,8 +99,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/keychain-event.jpg',
-    videoUrl: '/videos/keychain-event.mp4',
+    thumbnailUrl: `${b}thumbnails/keychain-event.jpg`,
+    videoUrl: `${b}videos/keychain-event.mp4`,
     category: 'video',
   },
   {
@@ -107,8 +110,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/free-food-fridays-dean.png',
-    videoUrl: '/videos/free-food-fridays-dean.mp4',
+    thumbnailUrl: `${b}thumbnails/free-food-fridays-dean.png`,
+    videoUrl: `${b}videos/free-food-fridays-dean.mp4`,
     category: 'video',
   },
   {
@@ -118,8 +121,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/public-service-leaders.png',
-    videoUrl: '/videos/public-service-leaders.mp4',
+    thumbnailUrl: `${b}thumbnails/public-service-leaders.png`,
+    videoUrl: `${b}videos/public-service-leaders.mp4`,
     category: 'video',
   },
   {
@@ -129,8 +132,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/trinket-lovers.jpg',
-    videoUrl: '/videos/trinket-lovers.mp4',
+    thumbnailUrl: `${b}thumbnails/trinket-lovers.jpg`,
+    videoUrl: `${b}videos/trinket-lovers.mp4`,
     category: 'video',
   },
   {
@@ -140,8 +143,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/undergrad-programs.png',
-    videoUrl: '/videos/undergrad-programs.mp4',
+    thumbnailUrl: `${b}thumbnails/undergrad-programs.png`,
+    videoUrl: `${b}videos/undergrad-programs.mp4`,
     category: 'video',
   },
   {
@@ -151,8 +154,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/collectors-freebie.jpg',
-    videoUrl: '/videos/collectors-freebie.mp4',
+    thumbnailUrl: `${b}thumbnails/collectors-freebie.jpg`,
+    videoUrl: `${b}videos/collectors-freebie.mp4`,
     category: 'video',
   },
 
@@ -165,13 +168,13 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/images/store-product-drop-1.jpg',
+    thumbnailUrl: `${b}images/store-product-drop-1.jpg`,
     images: [
-      '/images/store-product-drop-1.jpg',
-      '/images/store-product-drop-2.jpg',
-      '/images/store-product-drop-3.jpg',
-      '/images/store-product-drop-4.jpg',
-      '/images/store-product-drop-5.jpg',
+      `${b}images/store-product-drop-1.jpg`,
+      `${b}images/store-product-drop-2.jpg`,
+      `${b}images/store-product-drop-3.jpg`,
+      `${b}images/store-product-drop-4.jpg`,
+      `${b}images/store-product-drop-5.jpg`,
     ],
     category: 'still',
   },
@@ -182,8 +185,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/images/leaders-in-the-making.jpg',
-    pdfUrl: '/images/leaders-in-the-making.pdf',
+    thumbnailUrl: `${b}images/leaders-in-the-making.jpg`,
+    pdfUrl: `${b}images/leaders-in-the-making.pdf`,
     category: 'still',
   },
   {
@@ -193,8 +196,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/images/career-visit-promo.jpg',
-    imageUrl: '/images/career-visit-promo.jpg',
+    thumbnailUrl: `${b}images/career-visit-promo.jpg`,
+    imageUrl: `${b}images/career-visit-promo.jpg`,
     category: 'still',
   },
   {
@@ -204,8 +207,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/images/fridays-with-the-dean-promo.jpg',
-    imageUrl: '/images/fridays-with-the-dean-promo.jpg',
+    thumbnailUrl: `${b}images/fridays-with-the-dean-promo.jpg`,
+    imageUrl: `${b}images/fridays-with-the-dean-promo.jpg`,
     category: 'still',
   },
   {
@@ -215,8 +218,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/images/monthly-lunch-and-learn.jpg',
-    imageUrl: '/images/monthly-lunch-and-learn.jpg',
+    thumbnailUrl: `${b}images/monthly-lunch-and-learn.jpg`,
+    imageUrl: `${b}images/monthly-lunch-and-learn.jpg`,
     category: 'still',
   },
   {
@@ -226,8 +229,8 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/images/website-launch.png',
-    imageUrl: '/images/website-launch.png',
+    thumbnailUrl: `${b}images/website-launch.png`,
+    imageUrl: `${b}images/website-launch.png`,
     category: 'still',
   },
   {
@@ -237,10 +240,10 @@ export const projects: Project[] = [
     role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/images/emergency-responders-qa-1.jpg',
+    thumbnailUrl: `${b}images/emergency-responders-qa-1.jpg`,
     images: [
-      '/images/emergency-responders-qa-1.jpg',
-      '/images/emergency-responders-qa-2.jpg',
+      `${b}images/emergency-responders-qa-1.jpg`,
+      `${b}images/emergency-responders-qa-2.jpg`,
     ],
     category: 'still',
   },
