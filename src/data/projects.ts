@@ -176,20 +176,6 @@ export const projects: Project[] = [
     category: 'still',
   },
   {
-    id: 'emergency-responders-qa',
-    title: 'Emergency Responders Q&A Post',
-    description: '',
-    role: '',
-    client: '',
-    year: 2024,
-    thumbnailUrl: '/images/emergency-responders-qa-1.jpg',
-    images: [
-      '/images/emergency-responders-qa-1.jpg',
-      '/images/emergency-responders-qa-2.jpg',
-    ],
-    category: 'still',
-  },
-  {
     id: 'leaders-in-the-making',
     title: 'Leaders In The Making Magazine Feature',
     description: '',
@@ -242,6 +228,20 @@ export const projects: Project[] = [
     year: 2024,
     thumbnailUrl: '/images/website-launch.png',
     imageUrl: '/images/website-launch.png',
+    category: 'still',
+  },
+  {
+    id: 'emergency-responders-qa',
+    title: 'Emergency Responders Q&A Post',
+    description: '',
+    role: '',
+    client: '',
+    year: 2024,
+    thumbnailUrl: '/images/emergency-responders-qa-1.jpg',
+    images: [
+      '/images/emergency-responders-qa-1.jpg',
+      '/images/emergency-responders-qa-2.jpg',
+    ],
     category: 'still',
   },
 ];
