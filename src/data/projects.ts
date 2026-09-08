@@ -1,22 +1,18 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // HOW TO ADD OR EDIT A PROJECT
 //
-// 1. Add a new object to the array below.
-// 2. Drop the thumbnail in:  public/thumbnails/<filename>.jpg
+// 1. Add a new object to the array below (order in this array = order on site).
+// 2. Drop the thumbnail in:  public/thumbnails/<filename>
 // 3. For VIDEO projects:
-//    - If hosting locally:  drop the file in public/videos/<filename>.mp4
-//      and set videoUrl: '/videos/<filename>.mp4'
-//    - If hosting on Vimeo: set videoUrl to the embed URL, e.g.
-//      'https://player.vimeo.com/video/XXXXXXXXX'
-//    - If hosting on YouTube: set videoUrl to the embed URL, e.g.
-//      'https://www.youtube.com/embed/XXXXXXXXXXX'
+//    - Local file:    public/videos/<filename>  →  videoUrl: '/videos/<filename>'
+//    - Vimeo embed:   videoUrl: 'https://player.vimeo.com/video/XXXXXXXXX'
+//    - YouTube embed: videoUrl: 'https://www.youtube.com/embed/XXXXXXXXXXX'
 // 4. For STILL projects:
-//    - Drop the full-size image in public/images/<filename>.jpg
-//      and set imageUrl: '/images/<filename>.jpg'
-//    - If imageUrl is omitted, the lightbox will enlarge the thumbnail.
+//    - Drop the full-size image in public/images/<filename>
+//    - If imageUrl is omitted, the lightbox enlarges the thumbnail.
 //
 // NOTE: Video files are excluded from Git (see .gitignore).
-// Commit thumbnails and images — they are small enough.
+// Commit thumbnails and images — they are small enough for GitHub.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export type Category = 'video' | 'still';
@@ -30,19 +26,18 @@ export interface Project {
   /** Client or organization name */
   client: string;
   year: number;
-  /** Path to thumbnail image (placed in public/thumbnails/) */
+  /** Path to thumbnail (placed in public/thumbnails/) */
   thumbnailUrl: string;
   /**
    * VIDEO projects only.
-   * Local path: '/videos/filename.mp4'
-   * Vimeo embed:   'https://player.vimeo.com/video/XXXXXXXXX'
-   * YouTube embed: 'https://www.youtube.com/embed/XXXXXXXXXXX'
+   * Local:   '/videos/filename.mp4'
+   * Vimeo:   'https://player.vimeo.com/video/XXXXXXXXX'
+   * YouTube: 'https://www.youtube.com/embed/XXXXXXXXXXX'
    */
   videoUrl?: string;
   /**
    * STILL projects only.
-   * Full-size image shown in the lightbox.
-   * Falls back to thumbnailUrl if omitted.
+   * Full-size image shown in lightbox. Falls back to thumbnailUrl if omitted.
    */
   imageUrl?: string;
   category: Category;
@@ -51,126 +46,126 @@ export interface Project {
 
 export const projects: Project[] = [
 
-  // ── VIDEO PROJECTS ──────────────────────────────────────────────────────────
+  // ── VIDEO PROJECTS (order here = order on site) ──────────────────────────
 
   {
     id: 'chi-duong-reel',
     title: 'Chi Duong Video Editor Reel',
-    description: 'A highlight reel showcasing video editing work across broadcast, social media, and institutional storytelling.',
-    role: 'Video Editor',
+    description: '',
+    role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/chi-duong-reel.jpg',
-    videoUrl: '/videos/ChiDuongVideoEditorREEL.mp4',
+    thumbnailUrl: '/thumbnails/chi-duong-reel.png',
+    videoUrl: '/videos/chi-duong-reel.mp4',
     category: 'video',
   },
   {
     id: 'forensics-classroom',
-    title: 'Hands-On Forensics in the Classroom',
+    title: 'Hands-On Forensics',
     description: '',
-    role: 'Video Editor',
+    role: '',
     client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/forensics-classroom.jpg',
-    videoUrl: '/videos/FORENSIC-CRIME-SCENE-INVESTIGATION.mp4',
+    thumbnailUrl: '/thumbnails/forensics-classroom.png',
+    videoUrl: '/videos/forensics-classroom.mp4',
     category: 'video',
   },
   {
     id: 'governor-wilder-birthday',
-    title: "Governor Wilder's Birthday of Art and Legacy",
+    title: 'Governor Birthday Art Event',
     description: '',
-    role: 'Video Editor',
-    client: 'L. Douglas Wilder School of Government and Public Affairs',
+    role: '',
+    client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/governor-wilder-birthday.jpg',
-    videoUrl: '/videos/Gov-Birthday-Art-Exhibit-Reel.mp4',
+    thumbnailUrl: '/thumbnails/governor-wilder-birthday.png',
+    videoUrl: '/videos/governor-wilder-birthday.mp4',
     category: 'video',
   },
   {
     id: 'blind-box-giveaway',
     title: 'Blind Box Friendship Giveaway',
     description: '',
-    role: 'Video Editor',
+    role: '',
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/blind-box-giveaway.jpg',
-    videoUrl: '/videos/Blind-Box-Friendship-Giveaway.mp4',
-    category: 'video',
-  },
-  {
-    id: 'free-food-fridays-dean',
-    title: 'Free Food Fridays with The Dean',
-    description: '',
-    role: 'Video Editor',
-    client: 'L. Douglas Wilder School of Government and Public Affairs',
-    year: 2024,
-    thumbnailUrl: '/thumbnails/free-food-fridays-dean.jpg',
-    videoUrl: '/videos/Free-Food-Fridays-Short.mp4',
+    videoUrl: '/videos/blind-box-giveaway.MOV',
     category: 'video',
   },
   {
     id: 'keychain-event',
     title: 'Personalize Your Keychain Event',
     description: '',
-    role: 'Video Editor',
+    role: '',
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/keychain-event.jpg',
-    videoUrl: '/videos/Personalize-Your-Keychain-Event.mp4',
+    videoUrl: '/videos/keychain-event.MOV',
+    category: 'video',
+  },
+  {
+    id: 'free-food-fridays-dean',
+    title: 'Fridays With The Dean',
+    description: '',
+    role: '',
+    client: '',
+    year: 2024,
+    thumbnailUrl: '/thumbnails/free-food-fridays-dean.png',
+    videoUrl: '/videos/free-food-fridays-dean.mp4',
     category: 'video',
   },
   {
     id: 'public-service-leaders',
-    title: 'Public Service Leaders in the Making',
+    title: 'Future Leaders At The Capitol',
     description: '',
-    role: 'Video Editor',
-    client: 'L. Douglas Wilder School of Government and Public Affairs',
+    role: '',
+    client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/public-service-leaders.jpg',
-    videoUrl: '/videos/Capitol-Semester-Joseph-Levy.mp4',
+    thumbnailUrl: '/thumbnails/public-service-leaders.png',
+    videoUrl: '/videos/public-service-leaders.mp4',
     category: 'video',
   },
   {
     id: 'trinket-lovers',
-    title: 'Trinket Lovers Promotion',
+    title: 'For Your Trinket Besties',
     description: '',
-    role: 'Video Editor',
+    role: '',
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/trinket-lovers.jpg',
-    videoUrl: '/videos/Trinket-Lovers-Tale.mp4',
+    videoUrl: '/videos/trinket-lovers.MOV',
     category: 'video',
   },
   {
     id: 'undergrad-programs',
-    title: 'Wilder School Undergraduate Programs Compilation',
+    title: 'All About Our Undergraduate Programs',
     description: '',
-    role: 'Video Editor',
-    client: 'L. Douglas Wilder School of Government and Public Affairs',
+    role: '',
+    client: '',
     year: 2024,
-    thumbnailUrl: '/thumbnails/undergrad-programs.jpg',
-    videoUrl: '/videos/Undergrad-Programs-Info-Master-Reel.mp4',
+    thumbnailUrl: '/thumbnails/undergrad-programs.png',
+    videoUrl: '/videos/undergrad-programs.mp4',
     category: 'video',
   },
   {
     id: 'collectors-freebie',
     title: 'Collectors Favorite Freebie Weekend',
     description: '',
-    role: 'Video Editor',
+    role: '',
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/collectors-freebie.jpg',
-    videoUrl: '/videos/Collectors-Favorite-Freebie-Weekend.mp4',
+    videoUrl: '/videos/collectors-freebie.MOV',
     category: 'video',
   },
 
-  // ── STILL / SOCIAL MEDIA PROJECTS ───────────────────────────────────────────
+  // ── STILL / SOCIAL MEDIA PROJECTS ────────────────────────────────────────
 
   {
     id: 'store-product-drop',
     title: 'Store Product Drop Carousel Post',
     description: '',
-    role: 'Content Creator',
+    role: '',
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/store-product-drop.jpg',
@@ -181,8 +176,8 @@ export const projects: Project[] = [
     id: 'wilder-school-magazine',
     title: 'Wilder School in Action Magazine Feature',
     description: '',
-    role: 'Content Creator',
-    client: 'L. Douglas Wilder School of Government and Public Affairs',
+    role: '',
+    client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/wilder-school-magazine.jpg',
     imageUrl: '/images/wilder-school-magazine.jpg',
@@ -192,7 +187,7 @@ export const projects: Project[] = [
     id: 'website-launch',
     title: 'Website Launch Post',
     description: '',
-    role: 'Content Creator',
+    role: '',
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/website-launch.jpg',
@@ -203,7 +198,7 @@ export const projects: Project[] = [
     id: 'fema-emergency-qa',
     title: 'FEMA Emergency Response Q&A Post',
     description: '',
-    role: 'Content Creator',
+    role: '',
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/fema-emergency-qa.jpg',
@@ -214,7 +209,7 @@ export const projects: Project[] = [
     id: 'monthly-lunch-learn',
     title: 'Monthly Lunch and Learn Post',
     description: '',
-    role: 'Content Creator',
+    role: '',
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/monthly-lunch-learn.jpg',
@@ -225,7 +220,7 @@ export const projects: Project[] = [
     id: 'appam-colleagues',
     title: 'Our Colleagues at APPAM Post',
     description: '',
-    role: 'Content Creator',
+    role: '',
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/appam-colleagues.jpg',
@@ -236,7 +231,7 @@ export const projects: Project[] = [
     id: 'free-food-fridays-post',
     title: 'Free Food Fridays Post',
     description: '',
-    role: 'Content Creator',
+    role: '',
     client: '',
     year: 2024,
     thumbnailUrl: '/thumbnails/free-food-fridays-post.jpg',
