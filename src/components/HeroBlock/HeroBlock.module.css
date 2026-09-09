@@ -24,22 +24,3 @@
   line-height: 1.3;
   text-transform: uppercase;
 }
-
-.chevron {
-  font-size: 30px;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  line-height: 1;
-  margin-top: 10px;
-  transition: color var(--transition);
-  animation: nudge 2.4s ease-in-out infinite;
-}
-
-.chevron:hover {
-  color: var(--color-text);
-}
-
-@keyframes nudge {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(5px); }
-}

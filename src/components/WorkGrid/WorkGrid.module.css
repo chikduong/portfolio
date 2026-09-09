@@ -4,7 +4,7 @@
   gap: 6px;
   max-width: var(--page-max-width);
   margin: 0 auto;
-  padding: 0 6px 48px;
+  padding: 0 var(--page-padding) 48px;
 }
 
 @media (min-width: 768px) {
