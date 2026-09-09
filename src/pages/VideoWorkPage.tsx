@@ -19,7 +19,7 @@ export function VideoWorkPage() {
       <Header />
       <HeroBlock
         title="Video Editor"
-        subtitle="For social media + broadcasting"
+        subtitle="Social media + broadcasting"
         onScrollDown={() => gridRef.current?.scrollIntoView({ behavior: 'smooth' })}
       />
       <div ref={gridRef}>

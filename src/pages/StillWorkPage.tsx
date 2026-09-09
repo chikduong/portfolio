@@ -35,7 +35,7 @@ export function StillWorkPage() {
       <Header />
       <HeroBlock
         title="Content Creator"
-        subtitle="For social media + publication"
+        subtitle="Social media + publication"
         onScrollDown={() => gridRef.current?.scrollIntoView({ behavior: 'smooth' })}
       />
       <div ref={gridRef}>
