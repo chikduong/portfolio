@@ -10,6 +10,25 @@ import styles from './VideoWorkPage.module.css';
 const videoProjects = projects.filter(p => p.category === 'video');
 const [reelProject, ...otherProjects] = videoProjects;
 
+const skills = [
+  {
+    heading: 'Tools',
+    items: ['Adobe Premiere Pro', 'Adobe After Effects', 'CapCut', 'InDesign', 'Canva'],
+  },
+  {
+    heading: 'Video-Editing Skills',
+    items: ['Multi-camera video editing', 'Sound editing', 'Motion graphics', 'Animation', 'Color correction', 'Captioning'],
+  },
+  {
+    heading: 'Videographer Skills',
+    items: ['Location filming', 'Event filming', 'Interviewing', 'Camera tools', 'Sound recording'],
+  },
+  {
+    heading: 'More Content Skills',
+    items: ['Copywriting', 'Feature writing', 'Graphic Design', 'Web Design', 'Communications', 'Narrative and brand strategy'],
+  },
+];
+
 export function VideoWorkPage() {
   const gridRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -53,6 +72,26 @@ export function VideoWorkPage() {
             />
           ))}
         </WorkGrid>
+
+        {/* Skills */}
+        <div className={`${styles.showreelSection} ${styles.skillsDivider}`}>
+          <div className={styles.showreelRow}>
+            <div className={styles.showreelLine} />
+            <span className={styles.showreelLabel}>Skills</span>
+          </div>
+        </div>
+        <div className={styles.skillsGrid}>
+          {skills.map(({ heading, items }) => (
+            <div key={heading}>
+              <p className={styles.skillsSubheading}>{heading}</p>
+              <div className={styles.bubbles}>
+                {items.map(item => (
+                  <span key={item} className={styles.bubble}>{item}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

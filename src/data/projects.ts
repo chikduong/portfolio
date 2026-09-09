@@ -72,7 +72,7 @@ export const projects: Project[] = [
   },
   {
     id: 'governor-wilder-birthday',
-    title: 'Governor Birthday Art Event',
+    title: 'Governor Birthday and Art Exhibition',
     description: '',
     role: '',
     client: '',
