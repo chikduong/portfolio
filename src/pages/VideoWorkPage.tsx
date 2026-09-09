@@ -82,6 +82,11 @@ export function VideoWorkPage() {
           </div>
         ))}
       </div>
+
+      {/* Sign-off */}
+      <div className={styles.signOff}>
+        <p className={styles.signOffText}>Thank you for watching.</p>
+      </div>
     </>
   );
 }

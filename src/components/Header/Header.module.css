@@ -25,12 +25,14 @@
 .email {
   font-size: clamp(16px, 2vw, 26px);
   font-weight: 400;
-  color: var(--color-text-muted);
-  transition: color var(--transition);
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity var(--transition);
 }
 
 .email:hover {
-  color: var(--color-text);
+  opacity: 0.6;
 }
 
 /* Hamburger pinned top-right, independent of title centering */

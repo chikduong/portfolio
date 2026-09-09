@@ -28,6 +28,23 @@
   opacity: 0.18;
 }
 
+/* ── Sign-off ────────────────────────────────────────────────────────────── */
+
+.signOff {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 16px var(--page-padding) 72px;
+  text-align: right;
+}
+
+.signOffText {
+  font-size: clamp(28px, 4.5vw, 60px);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
 /* ── Skills section ──────────────────────────────────────────────────────── */
 
 .skillsDivider {
