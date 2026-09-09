@@ -10,13 +10,15 @@ export function AboutPage() {
 
   return (
     <>
-      {/* Black colorblock — Header and heading sit inside so tokens inherit */}
+      {/* Grainy vignette section — Header and heading inherit white token override */}
       <div className={styles.darkSection}>
-        <Header />
+        <div className={styles.headerWrapper}>
+          <Header />
+        </div>
         <h1 className={styles.heading}>About Me</h1>
       </div>
 
-      {/* White body section — narrower container */}
+      {/* Body — same left padding as darkSection so text aligns with heading */}
       <div className={styles.lightSection}>
         <div className={styles.body}>
           <p className={styles.leadSentence}>

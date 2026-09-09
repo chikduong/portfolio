@@ -5,6 +5,9 @@
   z-index: 100;
   display: flex;
   justify-content: flex-end;
+  /* Always use dark text regardless of the page's background theme */
+  --color-text:       #1a1a1a;
+  --color-text-muted: #555555;
 }
 
 .drawer {

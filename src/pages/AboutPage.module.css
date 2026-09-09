@@ -3,21 +3,49 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Dark colorblock ─────────────────────────────────────────────────────── */
+/* ── Grainy vignette section ─────────────────────────────────────────────── */
 
 .darkSection {
-  background: linear-gradient(170deg, #000000 0%, #161616 100%);
-  padding-bottom: 72px;
-  /* Redefine tokens so Header and heading text become white */
+  position: relative;
+  background: #111111;
+  padding: 0 var(--page-padding) 80px;
+  overflow: hidden;
+
   --color-text:       #ffffff;
   --color-text-muted: rgba(255, 255, 255, 0.9);
 }
 
-.heading {
-  max-width: var(--page-max-width);
-  margin: 0 auto;
-  padding: 0 var(--page-padding);
+/* Grain layer */
+.darkSection::before {
+  content: '';
+  position: absolute;
+  inset: -100px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  opacity: 0.09;
+  pointer-events: none;
+  z-index: 0;
+}
 
+/* Radial vignette — darkest at edges, slightly lighter in center */
+.darkSection::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 55% 45%, rgba(0,0,0,0) 10%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.82) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* All direct children sit above grain + vignette */
+.headerWrapper,
+.heading {
+  position: relative;
+  z-index: 1;
+}
+
+.heading {
   font-size: clamp(80px, 15vw, 168px);
   font-weight: 700;
   font-style: italic;
@@ -32,7 +60,7 @@
 /* ── Body section ────────────────────────────────────────────────────────── */
 
 .lightSection {
-  background: #ffffff;
+  /* Same side padding as darkSection so body left-edge aligns with heading */
   padding: 52px var(--page-padding) 120px;
 }
 
@@ -43,9 +71,9 @@
 }
 
 .leadSentence {
-  font-size: clamp(17px, 1.8vw, 20px);
-  font-weight: 400;
-  line-height: 1.65;
+  font-size: clamp(18px, 1.9vw, 22px);
+  font-weight: 700;
+  line-height: 1.6;
   color: var(--color-text);
   margin-bottom: 16px;
 }
@@ -53,14 +81,14 @@
 .bodyText {
   font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.72;
   color: var(--color-text);
 }
 
 .bodyTextSpaced {
   font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.72;
   color: var(--color-text);
   margin-top: 28px;
 }
