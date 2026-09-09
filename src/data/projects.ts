@@ -50,7 +50,7 @@ export const projects: Project[] = [
 
   {
     id: 'chi-duong-reel',
-    title: 'Chi Duong Video Editor Reel',
+    title: 'Chi Duong 60 Second Reel',
     description: '',
     role: '',
     client: '',

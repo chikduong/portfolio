@@ -26,8 +26,8 @@ export function VideoWorkPage() {
         {/* Featured reel — full width */}
         <div className={styles.showreelSection}>
           <div className={styles.showreelRow}>
-            <span className={styles.showreelLabel}>Showreel</span>
             <div className={styles.showreelLine} />
+            <span className={styles.showreelLabel}>Showreel</span>
           </div>
           <WorkCard
             title={reelProject.title}
