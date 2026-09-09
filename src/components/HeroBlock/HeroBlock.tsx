@@ -1,18 +1,16 @@
 import styles from './HeroBlock.module.css';
 
 interface Props {
+  title: string;
+  subtitle: string;
   onScrollDown: () => void;
 }
 
-export function HeroBlock({ onScrollDown }: Props) {
+export function HeroBlock({ title, subtitle, onScrollDown }: Props) {
   return (
     <div className={styles.hero}>
-      <h1 className={styles.name}>CHI KIM DUONG</h1>
-      <p className={styles.tagline}>
-        Crafting engaging stories for social media, broadcasting,
-        <br />
-        publications, and communications.
-      </p>
+      <p className={styles.title}>{title}</p>
+      <p className={styles.subtitle}>{subtitle}</p>
       <button
         className={styles.chevron}
         onClick={onScrollDown}

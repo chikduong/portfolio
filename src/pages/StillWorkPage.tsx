@@ -33,7 +33,11 @@ export function StillWorkPage() {
   return (
     <>
       <Header />
-      <HeroBlock onScrollDown={() => gridRef.current?.scrollIntoView({ behavior: 'smooth' })} />
+      <HeroBlock
+        title="Content Creator"
+        subtitle="For social media + publication"
+        onScrollDown={() => gridRef.current?.scrollIntoView({ behavior: 'smooth' })}
+      />
       <div ref={gridRef}>
         <WorkGrid>
           {stillProjects.map(project => (

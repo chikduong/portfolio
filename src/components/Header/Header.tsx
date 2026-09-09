@@ -9,7 +9,7 @@ export function Header() {
     <>
       <header className={styles.header}>
         <div className={styles.titleGroup}>
-          <span className={styles.title}>Multimedia Content Specialist</span>
+          <span className={styles.title}>Chi Kim Duong</span>
           <a href="mailto:duongckwork@gmail.com" className={styles.email}>
             duongckwork@gmail.com
           </a>
