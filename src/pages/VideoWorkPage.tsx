@@ -36,7 +36,13 @@ export function VideoWorkPage() {
           />
         </div>
 
-        {/* Remaining videos — 2-column grid */}
+        {/* Full Cases — 2-column grid */}
+        <div className={styles.showreelSection}>
+          <div className={styles.showreelRow}>
+            <div className={styles.showreelLine} />
+            <span className={styles.showreelLabel}>Full Cases</span>
+          </div>
+        </div>
         <WorkGrid>
           {otherProjects.map(project => (
             <WorkCard
