@@ -16,13 +16,15 @@
 
 .title {
   font-size: clamp(26px, 4vw, 48px);
-  font-weight: 700;
+  font-weight: 400;
   color: var(--color-text);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .email {
-  font-size: 12px;
+  font-size: clamp(13px, 1.4vw, 18px);
+  font-weight: 400;
   color: var(--color-text-muted);
   transition: color var(--transition);
 }

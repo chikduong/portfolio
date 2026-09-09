@@ -18,8 +18,8 @@
 }
 
 .showreelLabel {
-  font-size: clamp(13px, 1.3vw, 16px);
-  font-weight: 500;
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 400;
   color: var(--color-text-muted);
   letter-spacing: 0.12em;
   text-transform: uppercase;

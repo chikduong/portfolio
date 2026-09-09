@@ -39,7 +39,7 @@
 
 .link {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--color-text);
   transition: color var(--transition);
 }
