@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { NavLink } from 'react-router-dom';
 import styles from './NavDrawer.module.css';
 
@@ -21,7 +22,7 @@ export function NavDrawer({ open, onClose }: Props) {
 
   if (!open) return null;
 
-  return (
+  return createPortal(
     <div className={styles.overlay} onClick={onClose} role="dialog" aria-modal="true" aria-label="Navigation">
       <nav className={styles.drawer} onClick={e => e.stopPropagation()}>
         <button className={styles.close} onClick={onClose} aria-label="Close navigation">
@@ -58,6 +59,7 @@ export function NavDrawer({ open, onClose }: Props) {
           </li>
         </ul>
       </nav>
-    </div>
+    </div>,
+    document.body
   );
 }

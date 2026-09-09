@@ -1,31 +1,40 @@
-import { useState } from 'react';
-import { NavDrawer } from '../NavDrawer/NavDrawer';
+import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 
 export function Header() {
-  const [navOpen, setNavOpen] = useState(false);
-
   return (
-    <>
-      <header className={styles.header}>
-        <div className={styles.titleGroup}>
-          <span className={styles.title}>Chi Kim Duong</span>
-          <a href="mailto:duongckwork@gmail.com" className={styles.email}>
-            duongckwork@gmail.com
-          </a>
-        </div>
-        <button
-          className={styles.hamburger}
-          onClick={() => setNavOpen(true)}
-          aria-label="Open navigation menu"
-          aria-expanded={navOpen}
+    <header className={styles.header}>
+      <nav className={styles.nav} aria-label="Main navigation">
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) => `${styles.navLink} ${isActive ? styles.navActive : ''}`}
         >
-          <span />
-          <span />
-          <span />
-        </button>
-      </header>
-      <NavDrawer open={navOpen} onClose={() => setNavOpen(false)} />
-    </>
+          Video Work
+        </NavLink>
+        <NavLink
+          to="/still"
+          className={({ isActive }) => `${styles.navLink} ${isActive ? styles.navActive : ''}`}
+        >
+          Still Work
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) => `${styles.navLink} ${isActive ? styles.navActive : ''}`}
+        >
+          About Me
+        </NavLink>
+        <a
+          href="mailto:duongckwork@gmail.com"
+          className={styles.navLink}
+        >
+          Email
+        </a>
+      </nav>
+
+      <div className={styles.titleGroup}>
+        <span className={styles.title}>Chi Kim Duong</span>
+      </div>
+    </header>
   );
 }

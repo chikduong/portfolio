@@ -9,7 +9,11 @@ export function VideoDetailPage() {
   const { id } = useParams<{ id: string }>();
   const [modalOpen, setModalOpen] = useState(false);
 
-  const project = projects.find(p => p.id === id && p.category === 'video');
+  const videoProjects = projects.filter(p => p.category === 'video');
+  const currentIndex = videoProjects.findIndex(p => p.id === id);
+  const project = currentIndex !== -1 ? videoProjects[currentIndex] : undefined;
+  const prevProject = currentIndex > 0 ? videoProjects[currentIndex - 1] : null;
+  const nextProject = currentIndex < videoProjects.length - 1 ? videoProjects[currentIndex + 1] : null;
 
   if (!project) {
     return (
@@ -34,8 +38,7 @@ export function VideoDetailPage() {
         <h1 className={styles.title}>{project.title}</h1>
 
         <div className={styles.meta}>
-          {project.year > 0 && <span>{project.year}</span>}
-          {project.role && <><span className={styles.sep}>·</span><span>{project.role}</span></>}
+          {project.role && <span>{project.role}</span>}
           {project.client && <><span className={styles.sep}>·</span><span>{project.client}</span></>}
         </div>
 
@@ -67,6 +70,34 @@ export function VideoDetailPage() {
           <p className={styles.credits}>
             <strong>Credits:</strong> {project.credits}
           </p>
+        )}
+
+        {(prevProject || nextProject) && (
+          <div className={styles.videoNav}>
+            {prevProject ? (
+              <Link to={`/video/${prevProject.id}`} className={styles.navCard}>
+                <img
+                  src={prevProject.thumbnailUrl}
+                  alt={prevProject.title}
+                  className={styles.navThumb}
+                />
+                <span className={styles.navDir}>← Previous</span>
+                <span className={styles.navTitle}>{prevProject.title}</span>
+              </Link>
+            ) : <div />}
+
+            {nextProject ? (
+              <Link to={`/video/${nextProject.id}`} className={`${styles.navCard} ${styles.navCardRight}`}>
+                <img
+                  src={nextProject.thumbnailUrl}
+                  alt={nextProject.title}
+                  className={styles.navThumb}
+                />
+                <span className={styles.navDir}>Next →</span>
+                <span className={styles.navTitle}>{nextProject.title}</span>
+              </Link>
+            ) : <div />}
+          </div>
         )}
       </div>
 

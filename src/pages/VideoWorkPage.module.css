@@ -38,11 +38,12 @@
 }
 
 .signOffText {
-  font-size: clamp(28px, 4.5vw, 60px);
+  font-size: clamp(52px, 8vw, 110px);
   font-weight: 700;
   font-style: italic;
   color: var(--color-text);
-  line-height: 1.2;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
 /* ── Skills section ──────────────────────────────────────────────────────── */
