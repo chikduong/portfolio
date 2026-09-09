@@ -5,8 +5,21 @@ import { HeroBlock } from '../components/HeroBlock/HeroBlock';
 import { WorkGrid } from '../components/WorkGrid/WorkGrid';
 import { WorkCard } from '../components/WorkCard/WorkCard';
 import { ImageLightbox, LightboxImage } from '../components/ImageLightbox/ImageLightbox';
+import styles from './StillWorkPage.module.css';
 
 const stillProjects = projects.filter(p => p.category === 'still');
+
+const contentSkills = [
+  'Graphic Design',
+  'Multi-platform sharing',
+  'Narrative and brand strategy',
+  'Copywriting',
+  'Feature writing',
+  'Web Design',
+  'Outreach coordination',
+  'Project management',
+  'Asset library management',
+];
 
 export function StillWorkPage() {
   const [lightboxImages, setLightboxImages] = useState<LightboxImage[] | null>(null);
@@ -39,6 +52,23 @@ export function StillWorkPage() {
           />
         ))}
       </WorkGrid>
+
+      {/* Content Skills */}
+      <div className={styles.sectionDivider}>
+        <div className={styles.sectionRow}>
+          <div className={styles.sectionLine} />
+          <span className={styles.sectionLabel}>Content Skills</span>
+        </div>
+      </div>
+      <div className={styles.skillsGrid}>
+        <div>
+          <div className={styles.bubbles}>
+            {contentSkills.map(item => (
+              <span key={item} className={styles.bubble}>{item}</span>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {lightboxImages && (
         <ImageLightbox

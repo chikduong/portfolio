@@ -22,10 +22,6 @@ const skills = [
     heading: 'Videographer Skills',
     items: ['Location filming', 'Event filming', 'Interviewing', 'Camera tools', 'Sound recording'],
   },
-  {
-    heading: 'More Content Skills',
-    items: ['Copywriting', 'Feature writing', 'Graphic Design', 'Web Design', 'Communications', 'Narrative and brand strategy'],
-  },
 ];
 
 export function VideoWorkPage() {
