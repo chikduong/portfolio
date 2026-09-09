@@ -12,14 +12,14 @@ const [reelProject, ...otherProjects] = videoProjects;
 const skills = [
   {
     heading: 'Tools',
-    items: ['Adobe Premiere Pro', 'Adobe After Effects', 'CapCut', 'InDesign', 'Canva'],
+    items: ['Adobe Premiere Pro', 'Adobe After Effects', 'CapCut'],
   },
   {
-    heading: 'Video-Editing Skills',
+    heading: 'Video-Editing',
     items: ['Multi-camera video editing', 'Sound editing', 'Motion graphics', 'Animation', 'Color correction', 'Captioning'],
   },
   {
-    heading: 'Videographer Skills',
+    heading: 'Videography',
     items: ['Location filming', 'Event filming', 'Interviewing', 'Camera tools', 'Sound recording'],
   },
 ];
@@ -85,7 +85,7 @@ export function VideoWorkPage() {
 
       {/* Sign-off */}
       <div className={styles.signOff}>
-        <p className={styles.signOffText}>Thank you for watching.</p>
+        <p className={styles.signOffText}>Thank you for watching!</p>
       </div>
     </>
   );

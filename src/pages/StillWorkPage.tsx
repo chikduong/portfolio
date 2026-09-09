@@ -9,6 +9,14 @@ import styles from './StillWorkPage.module.css';
 
 const stillProjects = projects.filter(p => p.category === 'still');
 
+const toolsSkills = [
+  'Adobe Photoshop',
+  'Adobe Illustrator',
+  'Adobe InDesign',
+  'Canva',
+  'Hootsuite',
+];
+
 const contentSkills = [
   'Graphic Design',
   'Multi-platform sharing',
@@ -53,15 +61,24 @@ export function StillWorkPage() {
         ))}
       </WorkGrid>
 
-      {/* Content Skills */}
+      {/* Skills */}
       <div className={styles.sectionDivider}>
         <div className={styles.sectionRow}>
           <div className={styles.sectionLine} />
-          <span className={styles.sectionLabel}>Content Skills</span>
+          <span className={styles.sectionLabel}>Skills</span>
         </div>
       </div>
       <div className={styles.skillsGrid}>
         <div>
+          <p className={styles.skillsSubheading}>Tools</p>
+          <div className={styles.bubbles}>
+            {toolsSkills.map(item => (
+              <span key={item} className={styles.bubble}>{item}</span>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p className={styles.skillsSubheading}>Content</p>
           <div className={styles.bubbles}>
             {contentSkills.map(item => (
               <span key={item} className={styles.bubble}>{item}</span>
