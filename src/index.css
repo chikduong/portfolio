@@ -17,7 +17,7 @@
   --font-family: 'Lora', Georgia, 'Times New Roman', serif;
 
   --page-max-width:  1200px;
-  --page-padding:    clamp(24px, 5vw, 80px);
+  --page-padding:    clamp(18px, 4vw, 64px);
 
   --transition: 0.2s ease;
 }

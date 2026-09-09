@@ -47,6 +47,15 @@ export function NavDrawer({ open, onClose }: Props) {
               Still Work
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
+              onClick={onClose}
+            >
+              About
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </div>
