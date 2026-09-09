@@ -9,7 +9,7 @@
 :root {
   --color-bg:           #ffffff;
   --color-text:         #1a1a1a;
-  --color-text-muted:   #666666;
+  --color-text-muted:   #1a1a1a;
   --color-accent:       #c8960c;   /* warm amber — matches original tagline */
   --color-overlay:      rgba(0, 0, 0, 0.88);
   --color-card-bg:      #ebebeb;   /* shown while thumbnails load */
