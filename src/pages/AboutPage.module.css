@@ -1,58 +1,70 @@
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.page {
-  max-width: 820px;
-  margin: 0 auto;
-  padding: 48px var(--page-padding) 120px;
+/* ── Dark colorblock ─────────────────────────────────────────────────────── */
+
+.darkSection {
+  background: linear-gradient(170deg, #000000 0%, #161616 100%);
+  padding-bottom: 72px;
+  /* Redefine tokens so Header and heading text become white */
+  --color-text:       #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.9);
 }
 
 .heading {
-  font-size: clamp(52px, 9vw, 100px);
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+
+  font-size: clamp(80px, 15vw, 168px);
   font-weight: 700;
   font-style: italic;
-  color: var(--color-text);
-  line-height: 1;
-  letter-spacing: -0.01em;
-  margin-bottom: 52px;
+  color: #ffffff;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
 
   opacity: 0;
   animation: fadeUp 0.35s ease forwards;
 }
 
+/* ── Body section ────────────────────────────────────────────────────────── */
+
+.lightSection {
+  background: #ffffff;
+  padding: 52px var(--page-padding) 120px;
+}
+
 .body {
+  max-width: 520px;
   opacity: 0;
   animation: fadeUp 0.35s ease 0.2s forwards;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
 }
 
-/* First sentence — slightly larger */
 .leadSentence {
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: clamp(17px, 1.8vw, 20px);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--color-text);
+  margin-bottom: 16px;
 }
 
-/* Normal body paragraphs */
 .bodyText {
-  font-size: clamp(15px, 1.6vw, 18px);
+  font-size: clamp(15px, 1.5vw, 17px);
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.7;
   color: var(--color-text);
 }
 
-/* Italic + slightly thicker opening sentence */
+.bodyTextSpaced {
+  font-size: clamp(15px, 1.5vw, 17px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-top: 28px;
+}
+
 .bodyItalicLead {
   font-style: italic;
   font-weight: 600;
