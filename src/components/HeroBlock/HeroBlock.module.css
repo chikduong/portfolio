@@ -9,9 +9,9 @@
 
 .title {
   font-size: clamp(52px, 10vw, 110px);
-  font-weight: 700;
+  font-weight: 400;
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.04em;
   line-height: 1;
   text-transform: uppercase;
 }
