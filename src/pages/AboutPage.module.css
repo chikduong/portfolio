@@ -5,7 +5,7 @@
 
 .page {
   min-height: 100vh;
-  background: radial-gradient(ellipse at 50% 35%, #ffffff 0%, #f4f4f4 55%, #e8e8e8 100%);
+  background: #ffffff;
 }
 
 /* Handwritten heading */
@@ -18,16 +18,16 @@
   color: #1a1a1a;
   line-height: 0.95;
   letter-spacing: 0.02em;
-  text-align: center;
-  padding: 8px var(--page-padding) 48px;
+  text-align: left;
+  padding: 48px var(--page-padding) 48px;
 
   opacity: 0;
   animation: fadeUp 0.4s ease forwards;
 }
 
-/* Body — narrow centred column, text left-aligned like a letter */
+/* Body — narrower column with wider side margins */
 .body {
-  max-width: 560px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 var(--page-padding) 100px;
   text-align: left;
@@ -69,13 +69,14 @@
   margin-top: 28px;
 }
 
-/* Handwritten signature */
+/* Handwritten signature — right-aligned under the body text */
 .signature {
   font-family: 'Caveat', cursive;
   font-size: clamp(48px, 6vw, 80px);
   font-weight: 400;
   color: #1a1a1a;
   line-height: 1.1;
-  margin-top: 36px;
+  margin-top: 52px;
   display: block;
+  text-align: right;
 }

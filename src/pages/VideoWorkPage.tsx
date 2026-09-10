@@ -20,7 +20,7 @@ const skills = [
   },
   {
     heading: 'Videography',
-    items: ['Location filming', 'Event filming', 'Interviewing', 'Camera tools', 'Sound recording'],
+    items: ['Location filming', 'Event filming', 'Interviewing', 'Camera tools', 'Sound recording', 'Scripting', 'On-set direction'],
   },
 ];
 

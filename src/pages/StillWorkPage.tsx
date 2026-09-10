@@ -27,6 +27,7 @@ const contentSkills = [
   'Outreach coordination',
   'Project management',
   'Asset library management',
+  'Market research',
 ];
 
 export function StillWorkPage() {
