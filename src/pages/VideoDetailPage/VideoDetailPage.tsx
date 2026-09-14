@@ -3,6 +3,10 @@ import { projects } from '../../data/projects';
 import { Header } from '../../components/Header/Header';
 import styles from './VideoDetailPage.module.css';
 
+function toWatchUrl(embedUrl: string): string {
+  return embedUrl.replace('youtube.com/embed/', 'youtube.com/watch?v=');
+}
+
 export function VideoDetailPage() {
   const { id } = useParams<{ id: string }>();
 
@@ -24,6 +28,7 @@ export function VideoDetailPage() {
     );
   }
 
+  const watchUrl = project.videoUrl ? toWatchUrl(project.videoUrl) : null;
   const isShort = project.videoAspectRatio === '9/16';
 
   return (
@@ -43,24 +48,41 @@ export function VideoDetailPage() {
           <p className={styles.description}>{project.description}</p>
         )}
 
-        {project.videoUrl ? (
-          <div className={styles.playerWrapper} style={isShort ? { maxWidth: '360px', margin: '0 auto 24px' } : undefined}>
-            <div className={styles.playerInner} style={{ aspectRatio: project.videoAspectRatio ?? '16/9' }}>
-              <iframe
-                src={project.videoUrl}
-                title={project.title}
-                className={styles.embed}
-                allowFullScreen
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-              />
+        <div
+          className={styles.posterWrap}
+          style={isShort ? { maxWidth: '360px', margin: '0 auto 24px' } : { marginBottom: '24px' }}
+        >
+          <a
+            href={watchUrl ?? '#'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.poster}
+            style={{ aspectRatio: project.videoAspectRatio ?? '16/9' }}
+            aria-label={`Watch ${project.title} on YouTube`}
+          >
+            <img
+              src={project.thumbnailUrl}
+              alt={project.title}
+              className={styles.posterImage}
+            />
+            <div className={styles.playOverlay} aria-hidden="true">
+              <svg className={styles.playIcon} viewBox="0 0 68 48" fill="none">
+                <rect width="68" height="48" rx="10" fill="rgba(0,0,0,0.75)" />
+                <path d="M27 15l22 9-22 9V15z" fill="white" />
+              </svg>
             </div>
-          </div>
-        ) : (
-          <div className={styles.noVideo}>
-            <img src={project.thumbnailUrl} alt={project.title} className={styles.fallbackImage} />
-          </div>
-        )}
+          </a>
+          {watchUrl && (
+            <a
+              href={watchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.watchLink}
+            >
+              ▶ Watch on YouTube
+            </a>
+          )}
+        </div>
 
         {project.credits && (
           <p className={styles.credits}>
