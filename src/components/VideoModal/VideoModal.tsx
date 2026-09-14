@@ -44,7 +44,8 @@ export function VideoModal({ videoUrl, title, onClose, aspectRatio = '16/9' }: P
             title={title}
             className={styles.embed}
             allowFullScreen
-            allow="autoplay; encrypted-media; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
           />
         ) : (
           <video
