@@ -1,13 +1,10 @@
-import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../../data/projects';
 import { Header } from '../../components/Header/Header';
-import { VideoModal } from '../../components/VideoModal/VideoModal';
 import styles from './VideoDetailPage.module.css';
 
 export function VideoDetailPage() {
   const { id } = useParams<{ id: string }>();
-  const [modalOpen, setModalOpen] = useState(false);
 
   const videoProjects = projects.filter(p => p.category === 'video');
   const currentIndex = videoProjects.findIndex(p => p.id === id);
@@ -27,7 +24,7 @@ export function VideoDetailPage() {
     );
   }
 
-  const hasVideo = Boolean(project.videoUrl);
+  const isShort = project.videoAspectRatio === '9/16';
 
   return (
     <>
@@ -46,28 +43,24 @@ export function VideoDetailPage() {
           <p className={styles.description}>{project.description}</p>
         )}
 
-        <button
-          className={styles.poster}
-          onClick={() => hasVideo && setModalOpen(true)}
-          aria-label={hasVideo ? `Play ${project.title}` : project.title}
-          style={{
-            cursor: hasVideo ? 'pointer' : 'default',
-            aspectRatio: project.videoAspectRatio ?? '16/9',
-          }}
-        >
-          <img
-            src={project.thumbnailUrl}
-            alt={project.title}
-            className={styles.posterImage}
-          />
-          {hasVideo && (
-            <div className={styles.playButton} aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                <path d="M8 5v14l11-7z" />
-              </svg>
+        {project.videoUrl ? (
+          <div className={styles.playerWrapper} style={isShort ? { maxWidth: '360px', margin: '0 auto 24px' } : undefined}>
+            <div className={styles.playerInner} style={{ aspectRatio: project.videoAspectRatio ?? '16/9' }}>
+              <iframe
+                src={project.videoUrl}
+                title={project.title}
+                className={styles.embed}
+                allowFullScreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
             </div>
-          )}
-        </button>
+          </div>
+        ) : (
+          <div className={styles.noVideo}>
+            <img src={project.thumbnailUrl} alt={project.title} className={styles.fallbackImage} />
+          </div>
+        )}
 
         {project.credits && (
           <p className={styles.credits}>
@@ -103,15 +96,6 @@ export function VideoDetailPage() {
           </div>
         )}
       </div>
-
-      {modalOpen && project.videoUrl && (
-        <VideoModal
-          videoUrl={project.videoUrl}
-          title={project.title}
-          aspectRatio={project.videoAspectRatio}
-          onClose={() => setModalOpen(false)}
-        />
-      )}
     </>
   );
 }
