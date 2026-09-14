@@ -5,9 +5,10 @@ interface Props {
   videoUrl: string;
   title: string;
   onClose: () => void;
+  aspectRatio?: string;
 }
 
-export function VideoModal({ videoUrl, title, onClose }: Props) {
+export function VideoModal({ videoUrl, title, onClose, aspectRatio = '16/9' }: Props) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
@@ -19,6 +20,11 @@ export function VideoModal({ videoUrl, title, onClose }: Props) {
   }, [onClose]);
 
   const isEmbed = videoUrl.startsWith('http');
+  const isShort = aspectRatio === '9/16';
+
+  const playerStyle = isShort
+    ? { height: 'min(82vh, 640px)', aspectRatio: '9/16' }
+    : { width: 'min(960px, 92vw)', aspectRatio: '16/9' };
 
   return (
     <div
@@ -31,7 +37,7 @@ export function VideoModal({ videoUrl, title, onClose }: Props) {
       <button className={styles.close} onClick={onClose} aria-label="Close video">
         &#x2715;
       </button>
-      <div className={styles.player} onClick={e => e.stopPropagation()}>
+      <div className={styles.player} style={playerStyle} onClick={e => e.stopPropagation()}>
         {isEmbed ? (
           <iframe
             src={videoUrl}

@@ -1,6 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: 6px;
   max-width: var(--page-max-width);
   margin: 0 auto;

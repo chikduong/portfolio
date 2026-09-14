@@ -50,7 +50,10 @@ export function VideoDetailPage() {
           className={styles.poster}
           onClick={() => hasVideo && setModalOpen(true)}
           aria-label={hasVideo ? `Play ${project.title}` : project.title}
-          style={{ cursor: hasVideo ? 'pointer' : 'default' }}
+          style={{
+            cursor: hasVideo ? 'pointer' : 'default',
+            aspectRatio: project.videoAspectRatio ?? '16/9',
+          }}
         >
           <img
             src={project.thumbnailUrl}
@@ -105,6 +108,7 @@ export function VideoDetailPage() {
         <VideoModal
           videoUrl={project.videoUrl}
           title={project.title}
+          aspectRatio={project.videoAspectRatio}
           onClose={() => setModalOpen(false)}
         />
       )}

@@ -31,6 +31,8 @@ export interface Project {
   thumbnailUrl: string;
   /** VIDEO: local path or embed URL */
   videoUrl?: string;
+  /** Override the default 16/9 modal aspect ratio — use '9/16' for Shorts */
+  videoAspectRatio?: string;
   /** STILL — single image: path to full-size image for lightbox */
   imageUrl?: string;
   /** STILL — multi-page post: all pages in display order */
@@ -56,7 +58,7 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: `${b}thumbnails/chi-duong-reel.png`,
-    videoUrl: `${b}videos/chi-duong-reel.mp4`,
+    videoUrl: 'https://www.youtube.com/embed/5BOno366ThA',
     category: 'video',
   },
   {
@@ -67,7 +69,7 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: `${b}thumbnails/forensics-classroom.png`,
-    videoUrl: `${b}videos/forensics-classroom.mp4`,
+    videoUrl: 'https://www.youtube.com/embed/0zHGFsmodRU',
     category: 'video',
   },
   {
@@ -78,7 +80,7 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: `${b}thumbnails/governor-wilder-birthday.png`,
-    videoUrl: `${b}videos/governor-wilder-birthday.mp4`,
+    videoUrl: 'https://www.youtube.com/embed/Cn0bNYqOJvU',
     category: 'video',
   },
   {
@@ -89,7 +91,7 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: `${b}thumbnails/free-food-fridays-dean.png`,
-    videoUrl: `${b}videos/free-food-fridays-dean.mp4`,
+    videoUrl: 'https://www.youtube.com/embed/LTNQqIHhR3Q',
     category: 'video',
   },
   {
@@ -100,7 +102,7 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: `${b}thumbnails/public-service-leaders.png`,
-    videoUrl: `${b}videos/public-service-leaders.mp4`,
+    videoUrl: 'https://www.youtube.com/embed/whRGhL7fARU',
     category: 'video',
   },
   {
@@ -111,7 +113,7 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: `${b}thumbnails/undergrad-programs.png`,
-    videoUrl: `${b}videos/undergrad-programs.mp4`,
+    videoUrl: 'https://www.youtube.com/embed/8FPZ_A67Khs',
     category: 'video',
   },
   {
@@ -122,7 +124,8 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: `${b}thumbnails/blind-box-giveaway.jpg`,
-    videoUrl: `${b}videos/blind-box-giveaway.mp4`,
+    videoUrl: 'https://www.youtube.com/embed/8i6Rp49Liys',
+    videoAspectRatio: '9/16',
     category: 'video',
   },
   {
@@ -133,7 +136,8 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: `${b}thumbnails/collectors-freebie.jpg`,
-    videoUrl: `${b}videos/collectors-freebie.mp4`,
+    videoUrl: 'https://www.youtube.com/embed/zYtdZRAivL4',
+    videoAspectRatio: '9/16',
     category: 'video',
   },
   {
@@ -144,7 +148,8 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: `${b}thumbnails/trinket-lovers.jpg`,
-    videoUrl: `${b}videos/trinket-lovers.mp4`,
+    videoUrl: 'https://www.youtube.com/embed/shuJtQIr1Qs',
+    videoAspectRatio: '9/16',
     category: 'video',
   },
   {
@@ -155,7 +160,8 @@ export const projects: Project[] = [
     client: '',
     year: 2024,
     thumbnailUrl: `${b}thumbnails/keychain-event.jpg`,
-    videoUrl: `${b}videos/keychain-event.mp4`,
+    videoUrl: 'https://www.youtube.com/embed/Is9dYEfGEVw',
+    videoAspectRatio: '9/16',
     category: 'video',
   },
 
